@@ -1,0 +1,64 @@
+From 092d67fbafe5c9500005f914972cc738e7ae6e81 Mon Sep 17 00:00:00 2001
+From: Athenas Jimenez Gonzalez <athenas.jimenez.gonzalez@intel.com>
+Date: Thu, 15 Jun 2017 18:58:16 +0000
+Subject: [PATCH 2/2] mavenlocal repo config
+
+---
+ build.gradle              | 5 ++---
+ gradle/buildscript.gradle | 4 +---
+ gradle/rat.gradle         | 2 +-
+ 3 files changed, 4 insertions(+), 7 deletions(-)
+
+diff --git a/build.gradle b/build.gradle
+index fded48e..7e25db9 100644
+--- a/build.gradle
++++ b/build.gradle
+@@ -17,8 +17,7 @@ import org.ajoberstar.grgit.Grgit
+ 
+ buildscript {
+   repositories {
+-    mavenCentral()
+-    jcenter()
++    mavenLocal()
+   }
+   apply from: file('gradle/buildscript.gradle'), to: buildscript
+ 
+@@ -36,7 +35,7 @@ allprojects {
+   apply plugin: "jacoco"
+ 
+   repositories {
+-    mavenCentral()
++    mavenLocal()
+   }
+ 
+   apply plugin: 'com.github.ben-manes.versions'
+diff --git a/gradle/buildscript.gradle b/gradle/buildscript.gradle
+index 047632b..fd96f89 100644
+--- a/gradle/buildscript.gradle
++++ b/gradle/buildscript.gradle
+@@ -16,8 +16,6 @@
+ repositories {
+   repositories {
+     // For license plugin.
+-    maven {
+-      url 'http://dl.bintray.com/content/netflixoss/external-gradle-plugins/'
+-    }
++    mavenLocal()
+   }
+ }
+diff --git a/gradle/rat.gradle b/gradle/rat.gradle
+index d62b372..b7a2ba2 100644
+--- a/gradle/rat.gradle
++++ b/gradle/rat.gradle
+@@ -106,7 +106,7 @@ class RatPlugin implements Plugin<Project> {
+       rat
+     }
+     project.repositories {
+-      mavenCentral()
++      mavenLocal()
+     }
+     project.dependencies {
+       rat 'org.apache.rat:apache-rat-tasks:0.11'
+-- 
+2.13.1
+

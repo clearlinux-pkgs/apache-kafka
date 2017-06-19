@@ -1,0 +1,96 @@
+From 917f2901676902fd30717a7b756e487f8cc851d9 Mon Sep 17 00:00:00 2001
+From: Athenas Jimenez Gonzalez <athenas.jimenez.gonzalez@intel.com>
+Date: Thu, 15 Jun 2017 18:13:16 +0000
+Subject: [PATCH 1/2] Fix checkstyle erros
+
+---
+ .../clients/consumer/internals/AbstractCoordinator.java      |  2 +-
+ .../java/org/apache/kafka/common/protocol/types/Struct.java  |  2 +-
+ .../security/authenticator/SaslClientCallbackHandler.java    |  4 ++--
+ .../apache/kafka/clients/producer/ProducerRecordTest.java    | 12 ++++++------
+ 4 files changed, 10 insertions(+), 10 deletions(-)
+
+diff --git a/clients/src/main/java/org/apache/kafka/clients/consumer/internals/AbstractCoordinator.java b/clients/src/main/java/org/apache/kafka/clients/consumer/internals/AbstractCoordinator.java
+index 93b92bb..dbbb912 100644
+--- a/clients/src/main/java/org/apache/kafka/clients/consumer/internals/AbstractCoordinator.java
++++ b/clients/src/main/java/org/apache/kafka/clients/consumer/internals/AbstractCoordinator.java
+@@ -918,7 +918,7 @@ public abstract class AbstractCoordinator implements Closeable {
+                 log.error("Unexpected interrupt received in heartbeat thread for group {}", groupId, e);
+                 this.failed.set(new RuntimeException(e));
+             } catch (RuntimeException e) {
+-                log.error("Heartbeat thread for group {} failed due to unexpected error" , groupId, e);
++                log.error("Heartbeat thread for group {} failed due to unexpected error", groupId, e);
+                 this.failed.set(e);
+             }
+         }
+diff --git a/clients/src/main/java/org/apache/kafka/common/protocol/types/Struct.java b/clients/src/main/java/org/apache/kafka/common/protocol/types/Struct.java
+index 212d701..7488748 100644
+--- a/clients/src/main/java/org/apache/kafka/common/protocol/types/Struct.java
++++ b/clients/src/main/java/org/apache/kafka/common/protocol/types/Struct.java
+@@ -316,7 +316,7 @@ public class Struct {
+             Field f = this.schema.get(i);
+             if (f.type() instanceof ArrayOf) {
+                 if (this.get(f) != null) {
+-                    Object[] arrayObject = (Object []) this.get(f);
++                    Object[] arrayObject = (Object[]) this.get(f);
+                     for (Object arrayItem: arrayObject)
+                         result = prime * result + arrayItem.hashCode();
+                 }
+diff --git a/clients/src/main/java/org/apache/kafka/common/security/authenticator/SaslClientCallbackHandler.java b/clients/src/main/java/org/apache/kafka/common/security/authenticator/SaslClientCallbackHandler.java
+index 8e0b8db..ee172ba 100644
+--- a/clients/src/main/java/org/apache/kafka/common/security/authenticator/SaslClientCallbackHandler.java
++++ b/clients/src/main/java/org/apache/kafka/common/security/authenticator/SaslClientCallbackHandler.java
+@@ -59,7 +59,7 @@ public class SaslClientCallbackHandler implements AuthCallbackHandler {
+                     nc.setName(nc.getDefaultName());
+             } else if (callback instanceof PasswordCallback) {
+                 if (!isKerberos && subject != null && !subject.getPrivateCredentials(String.class).isEmpty()) {
+-                    char [] password = subject.getPrivateCredentials(String.class).iterator().next().toCharArray();
++                    char[] password = subject.getPrivateCredentials(String.class).iterator().next().toCharArray();
+                     ((PasswordCallback) callback).setPassword(password);
+                 } else {
+                     String errorMessage = "Could not login: the client is being asked for a password, but the Kafka" +
+@@ -91,4 +91,4 @@ public class SaslClientCallbackHandler implements AuthCallbackHandler {
+     @Override
+     public void close() {
+     }
+-}
+\ No newline at end of file
++}
+diff --git a/clients/src/test/java/org/apache/kafka/clients/producer/ProducerRecordTest.java b/clients/src/test/java/org/apache/kafka/clients/producer/ProducerRecordTest.java
+index a844bb0..5186d05 100644
+--- a/clients/src/test/java/org/apache/kafka/clients/producer/ProducerRecordTest.java
++++ b/clients/src/test/java/org/apache/kafka/clients/producer/ProducerRecordTest.java
+@@ -26,24 +26,24 @@ public class ProducerRecordTest {
+ 
+     @Test
+     public void testEqualsAndHashCode() {
+-        ProducerRecord<String, Integer> producerRecord = new ProducerRecord<>("test", 1 , "key", 1);
++        ProducerRecord<String, Integer> producerRecord = new ProducerRecord<>("test", 1, "key", 1);
+         assertEquals(producerRecord, producerRecord);
+         assertEquals(producerRecord.hashCode(), producerRecord.hashCode());
+ 
+-        ProducerRecord<String, Integer> equalRecord = new ProducerRecord<>("test", 1 , "key", 1);
++        ProducerRecord<String, Integer> equalRecord = new ProducerRecord<>("test", 1, "key", 1);
+         assertEquals(producerRecord, equalRecord);
+         assertEquals(producerRecord.hashCode(), equalRecord.hashCode());
+ 
+-        ProducerRecord<String, Integer> topicMisMatch = new ProducerRecord<>("test-1", 1 , "key", 1);
++        ProducerRecord<String, Integer> topicMisMatch = new ProducerRecord<>("test-1", 1, "key", 1);
+         assertFalse(producerRecord.equals(topicMisMatch));
+ 
+-        ProducerRecord<String, Integer> partitionMismatch = new ProducerRecord<>("test", 2 , "key", 1);
++        ProducerRecord<String, Integer> partitionMismatch = new ProducerRecord<>("test", 2, "key", 1);
+         assertFalse(producerRecord.equals(partitionMismatch));
+ 
+-        ProducerRecord<String, Integer> keyMisMatch = new ProducerRecord<>("test", 1 , "key-1", 1);
++        ProducerRecord<String, Integer> keyMisMatch = new ProducerRecord<>("test", 1, "key-1", 1);
+         assertFalse(producerRecord.equals(keyMisMatch));
+ 
+-        ProducerRecord<String, Integer> valueMisMatch = new ProducerRecord<>("test", 1 , "key", 2);
++        ProducerRecord<String, Integer> valueMisMatch = new ProducerRecord<>("test", 1, "key", 2);
+         assertFalse(producerRecord.equals(valueMisMatch));
+ 
+         ProducerRecord<String, Integer> nullFieldsRecord = new ProducerRecord<>("topic", null, null, null, null);
+-- 
+2.13.1
+

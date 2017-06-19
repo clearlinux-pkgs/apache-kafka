@@ -1,0 +1,4 @@
+#!/bin/sh
+
+export KAFKA_HOME="${KAFKA_HOME:-/usr/share/apache-kafka}"
+$KAFKA_HOME/bin/@@CMD@@ "$@"
