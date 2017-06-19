@@ -1,5 +1,5 @@
 PKG_NAME := apache-kafka
-URL := http://mirror.jax.hugeserver.com/apache/kafka/0.8.2.2/kafka_2.11-0.8.2.2.tgz
+URL := http://apache.mirrors.lucidnetworks.net/kafka/0.10.1.1/kafka-0.10.1.1-src.tgz
 
 
 include ../common/Makefile.common
