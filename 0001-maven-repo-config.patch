@@ -1,0 +1,45 @@
+From 1cfe0b181378b9e00e062b0dac49fcf883cc7041 Mon Sep 17 00:00:00 2001
+From: Athenas Jimenez Gonzalez <athenas.jimenez.gonzalez@intel.com>
+Date: Thu, 17 Aug 2017 19:31:22 +0000
+Subject: [PATCH] maven repo config
+
+---
+ build.gradle | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/build.gradle b/build.gradle
+index fded48e..7c0fc24 100644
+--- a/build.gradle
++++ b/build.gradle
+@@ -17,8 +17,7 @@ import org.ajoberstar.grgit.Grgit
+ 
+ buildscript {
+   repositories {
+-    mavenCentral()
+-    jcenter()
++    maven { url "$repoDir/.m2/repository" }
+   }
+   apply from: file('gradle/buildscript.gradle'), to: buildscript
+ 
+@@ -36,7 +35,7 @@ allprojects {
+   apply plugin: "jacoco"
+ 
+   repositories {
+-    mavenCentral()
++    maven { url "$repoDir/.m2/repository" }
+   }
+ 
+   apply plugin: 'com.github.ben-manes.versions'
+@@ -84,6 +83,9 @@ ext {
+   mavenUsername = project.hasProperty('mavenUsername') ? project.mavenUsername : ''
+   mavenPassword = project.hasProperty('mavenPassword') ? project.mavenPassword : ''
+ 
++  //Add repoDir property
++  buildDir = project.hasProperty('repoDir') ? project.buildDir : ''
++
+   userShowStandardStreams = project.hasProperty("showStandardStreams") ? showStandardStreams : null
+ 
+   userTestLoggingEvents = project.hasProperty("testLoggingEvents") ? Arrays.asList(testLoggingEvents.split(",")) : null
+-- 
+2.14.1
+

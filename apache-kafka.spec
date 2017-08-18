@@ -1,6 +1,6 @@
 Name     : apache-kafka
 Version  : 0.10.1.1
-Release  : 3
+Release  : 4
 URL      : http://apache.mirrors.lucidnetworks.net/kafka/0.10.1.1/kafka-0.10.1.1-src.tgz
 Source0  : http://apache.mirrors.lucidnetworks.net/kafka/0.10.1.1/kafka-0.10.1.1-src.tgz
 Source1  : kafka-script
@@ -8,7 +8,7 @@ Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0
 Patch0   : 0001-Fix-checkstyle-errors.patch
-Patch1   : 0002-mavenlocal-repo-config.patch
+Patch1   : 0001-maven-repo-config.patch
 Patch2   : 0003-Fix-checkstyle-errors-2.patch
 Patch3   : 0004-Fix-checkstyle-errors-3.patch
 BuildRequires : gradle
@@ -25,14 +25,11 @@ No detailed description available
 %patch2 -p1 
 %patch3 -p1 
 
-mkdir -p /builddir/.m2
-cp -R /usr/share/apache-kafka/.m2/* /builddir/.m2
+mkdir -p %{buildroot}/.m2
+cp -R /usr/share/apache-kafka/.m2/* %{buildroot}/.m2
 
 %build
-gradle --offline -PscalaVersion=2.11 releaseTarGz -x signArchives
-
-%check
-gradle -PscalaVersion=2.11 test || :
+gradle --offline -PscalaVersion=2.11 releaseTarGz -x signArchives -PrepoDir=%{buildroot}
 
 %install
 rm -rf %{buildroot}
@@ -58,6 +55,9 @@ do
     sed s/@@CMD@@/$cmd/ %{SOURCE1} >%{buildroot}/usr/bin/$cmd
     chmod +x %{buildroot}/usr/bin/$cmd
 done
+
+%check
+gradle --offline -PscalaVersion=2.11 -PrepoDir=/usr/share/apache-kafka test || :
 
 %files
 %defattr(-,root,root,-)
