@@ -1,6 +1,6 @@
 Name     : apache-kafka
 Version  : 0.10.1.1
-Release  : 4
+Release  : 5
 URL      : http://apache.mirrors.lucidnetworks.net/kafka/0.10.1.1/kafka-0.10.1.1-src.tgz
 Source0  : http://apache.mirrors.lucidnetworks.net/kafka/0.10.1.1/kafka-0.10.1.1-src.tgz
 Source1  : kafka-script
@@ -9,8 +9,6 @@ Group    : Development/Tools
 License  : Apache-2.0
 Patch0   : 0001-Fix-checkstyle-errors.patch
 Patch1   : 0001-maven-repo-config.patch
-Patch2   : 0003-Fix-checkstyle-errors-2.patch
-Patch3   : 0004-Fix-checkstyle-errors-3.patch
 BuildRequires : gradle
 BuildRequires : openjdk-dev
 BuildRequires : kafka-dep
@@ -22,8 +20,6 @@ No detailed description available
 %setup -q -n kafka-0.10.1.1-src
 %patch0 -p1
 %patch1 -p1 
-%patch2 -p1 
-%patch3 -p1 
 
 mkdir -p %{buildroot}/.m2
 cp -R /usr/share/apache-kafka/.m2/* %{buildroot}/.m2

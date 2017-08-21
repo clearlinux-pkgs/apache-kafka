@@ -1,14 +1,14 @@
-From 1cfe0b181378b9e00e062b0dac49fcf883cc7041 Mon Sep 17 00:00:00 2001
+From 1eef52336e2eb73da44ab040fa7d24151ad1ec9e Mon Sep 17 00:00:00 2001
 From: Athenas Jimenez Gonzalez <athenas.jimenez.gonzalez@intel.com>
-Date: Thu, 17 Aug 2017 19:31:22 +0000
-Subject: [PATCH] maven repo config
+Date: Mon, 21 Aug 2017 16:29:41 +0000
+Subject: [PATCH] ardilla
 
 ---
- build.gradle | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+ build.gradle | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
 diff --git a/build.gradle b/build.gradle
-index fded48e..7c0fc24 100644
+index fded48e..aae22ed 100644
 --- a/build.gradle
 +++ b/build.gradle
 @@ -17,8 +17,7 @@ import org.ajoberstar.grgit.Grgit
@@ -30,16 +30,6 @@ index fded48e..7c0fc24 100644
    }
  
    apply plugin: 'com.github.ben-manes.versions'
-@@ -84,6 +83,9 @@ ext {
-   mavenUsername = project.hasProperty('mavenUsername') ? project.mavenUsername : ''
-   mavenPassword = project.hasProperty('mavenPassword') ? project.mavenPassword : ''
- 
-+  //Add repoDir property
-+  buildDir = project.hasProperty('repoDir') ? project.buildDir : ''
-+
-   userShowStandardStreams = project.hasProperty("showStandardStreams") ? showStandardStreams : null
- 
-   userTestLoggingEvents = project.hasProperty("testLoggingEvents") ? Arrays.asList(testLoggingEvents.split(",")) : null
 -- 
 2.14.1
 

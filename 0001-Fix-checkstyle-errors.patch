@@ -1,14 +1,19 @@
-From 917f2901676902fd30717a7b756e487f8cc851d9 Mon Sep 17 00:00:00 2001
+From 1179357f2dd19fff20d6feffec2191dbc05fda1e Mon Sep 17 00:00:00 2001
 From: Athenas Jimenez Gonzalez <athenas.jimenez.gonzalez@intel.com>
-Date: Thu, 15 Jun 2017 18:13:16 +0000
-Subject: [PATCH 1/2] Fix checkstyle erros
+Date: Mon, 21 Aug 2017 17:18:13 +0000
+Subject: [PATCH] Fix checkstyle errors
 
 ---
- .../clients/consumer/internals/AbstractCoordinator.java      |  2 +-
- .../java/org/apache/kafka/common/protocol/types/Struct.java  |  2 +-
- .../security/authenticator/SaslClientCallbackHandler.java    |  4 ++--
- .../apache/kafka/clients/producer/ProducerRecordTest.java    | 12 ++++++------
- 4 files changed, 10 insertions(+), 10 deletions(-)
+ .../consumer/internals/AbstractCoordinator.java    |  2 +-
+ .../apache/kafka/common/protocol/types/Struct.java |  2 +-
+ .../authenticator/SaslClientCallbackHandler.java   |  4 ++--
+ .../kafka/clients/producer/ProducerRecordTest.java | 12 +++++------
+ .../org/apache/kafka/streams/StreamsConfig.java    |  6 ++----
+ .../kafka/streams/processor/TopologyBuilder.java   |  2 +-
+ .../KStreamAggregationDedupIntegrationTest.java    |  8 ++++----
+ .../KStreamAggregationIntegrationTest.java         | 24 +++++++++++-----------
+ .../kafka/test/ProcessorTopologyTestDriver.java    |  2 +-
+ 9 files changed, 30 insertions(+), 32 deletions(-)
 
 diff --git a/clients/src/main/java/org/apache/kafka/clients/consumer/internals/AbstractCoordinator.java b/clients/src/main/java/org/apache/kafka/clients/consumer/internals/AbstractCoordinator.java
 index 93b92bb..dbbb912 100644
@@ -91,6 +96,152 @@ index a844bb0..5186d05 100644
          assertFalse(producerRecord.equals(valueMisMatch));
  
          ProducerRecord<String, Integer> nullFieldsRecord = new ProducerRecord<>("topic", null, null, null, null);
+diff --git a/streams/src/main/java/org/apache/kafka/streams/StreamsConfig.java b/streams/src/main/java/org/apache/kafka/streams/StreamsConfig.java
+index 5ba4383..b84a571 100644
+--- a/streams/src/main/java/org/apache/kafka/streams/StreamsConfig.java
++++ b/streams/src/main/java/org/apache/kafka/streams/StreamsConfig.java
+@@ -263,8 +263,7 @@ public class StreamsConfig extends AbstractConfig {
+     // this is the list of configs for underlying clients
+     // that streams prefer different default values
+     private static final Map<String, Object> PRODUCER_DEFAULT_OVERRIDES;
+-    static
+-    {
++    static {
+         Map<String, Object> tempProducerDefaultOverrides = new HashMap<>();
+         tempProducerDefaultOverrides.put(ProducerConfig.LINGER_MS_CONFIG, "100");
+ 
+@@ -272,8 +271,7 @@ public class StreamsConfig extends AbstractConfig {
+     }
+ 
+     private static final Map<String, Object> CONSUMER_DEFAULT_OVERRIDES;
+-    static
+-    {
++    static {
+         Map<String, Object> tempConsumerDefaultOverrides = new HashMap<>();
+         tempConsumerDefaultOverrides.put(ConsumerConfig.MAX_POLL_RECORDS_CONFIG, "1000");
+         tempConsumerDefaultOverrides.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
+diff --git a/streams/src/main/java/org/apache/kafka/streams/processor/TopologyBuilder.java b/streams/src/main/java/org/apache/kafka/streams/processor/TopologyBuilder.java
+index 81f1f63..bfca83a 100644
+--- a/streams/src/main/java/org/apache/kafka/streams/processor/TopologyBuilder.java
++++ b/streams/src/main/java/org/apache/kafka/streams/processor/TopologyBuilder.java
+@@ -676,7 +676,7 @@ public class TopologyBuilder {
+         }
+     }
+ 
+-    private Set<String> findSourceTopicsForProcessorParents(String [] parents) {
++    private Set<String> findSourceTopicsForProcessorParents(String[] parents) {
+         final Set<String> sourceTopics = new HashSet<>();
+         for (String parent : parents) {
+             NodeFactory nodeFactory = nodeFactories.get(parent);
+diff --git a/streams/src/test/java/org/apache/kafka/streams/integration/KStreamAggregationDedupIntegrationTest.java b/streams/src/test/java/org/apache/kafka/streams/integration/KStreamAggregationDedupIntegrationTest.java
+index ab08dbe..9d3219d 100644
+--- a/streams/src/test/java/org/apache/kafka/streams/integration/KStreamAggregationDedupIntegrationTest.java
++++ b/streams/src/test/java/org/apache/kafka/streams/integration/KStreamAggregationDedupIntegrationTest.java
+@@ -122,8 +122,8 @@ public class KStreamAggregationDedupIntegrationTest {
+ 
+         List<KeyValue<String, String>> results = receiveMessages(
+             new StringDeserializer(),
+-            new StringDeserializer()
+-            , 5);
++            new StringDeserializer(), 
++            5);
+ 
+         Collections.sort(results, new Comparator<KeyValue<String, String>>() {
+             @Override
+@@ -172,8 +172,8 @@ public class KStreamAggregationDedupIntegrationTest {
+ 
+         List<KeyValue<String, String>> windowedOutput = receiveMessages(
+             new StringDeserializer(),
+-            new StringDeserializer()
+-            , 10);
++            new StringDeserializer(), 
++            10);
+ 
+         Comparator<KeyValue<String, String>>
+             comparator =
+diff --git a/streams/src/test/java/org/apache/kafka/streams/integration/KStreamAggregationIntegrationTest.java b/streams/src/test/java/org/apache/kafka/streams/integration/KStreamAggregationIntegrationTest.java
+index e5560c1..f778e12 100644
+--- a/streams/src/test/java/org/apache/kafka/streams/integration/KStreamAggregationIntegrationTest.java
++++ b/streams/src/test/java/org/apache/kafka/streams/integration/KStreamAggregationIntegrationTest.java
+@@ -155,8 +155,8 @@ public class KStreamAggregationIntegrationTest {
+ 
+         final List<KeyValue<String, String>> results = receiveMessages(
+             new StringDeserializer(),
+-            new StringDeserializer()
+-            , 10);
++            new StringDeserializer(),
++            10);
+ 
+         Collections.sort(results, new Comparator<KeyValue<String, String>>() {
+             @Override
+@@ -209,8 +209,8 @@ public class KStreamAggregationIntegrationTest {
+ 
+         final List<KeyValue<String, String>> windowedOutput = receiveMessages(
+             new StringDeserializer(),
+-            new StringDeserializer()
+-            , 15);
++            new StringDeserializer(),
++            15);
+ 
+         final Comparator<KeyValue<String, String>>
+             comparator =
+@@ -263,8 +263,8 @@ public class KStreamAggregationIntegrationTest {
+ 
+         final List<KeyValue<String, Integer>> results = receiveMessages(
+             new StringDeserializer(),
+-            new IntegerDeserializer()
+-            , 10);
++            new IntegerDeserializer(),
++            10);
+ 
+         Collections.sort(results, new Comparator<KeyValue<String, Integer>>() {
+             @Override
+@@ -313,8 +313,8 @@ public class KStreamAggregationIntegrationTest {
+ 
+         final List<KeyValue<String, Integer>> windowedMessages = receiveMessages(
+             new StringDeserializer(),
+-            new IntegerDeserializer()
+-            , 15);
++            new IntegerDeserializer(),
++            15);
+ 
+         final Comparator<KeyValue<String, Integer>>
+             comparator =
+@@ -364,8 +364,8 @@ public class KStreamAggregationIntegrationTest {
+ 
+         final List<KeyValue<String, Long>> results = receiveMessages(
+             new StringDeserializer(),
+-            new LongDeserializer()
+-            , 10);
++            new LongDeserializer(),
++            10);
+         Collections.sort(results, new Comparator<KeyValue<String, Long>>() {
+             @Override
+             public int compare(final KeyValue<String, Long> o1, final KeyValue<String, Long> o2) {
+@@ -406,8 +406,8 @@ public class KStreamAggregationIntegrationTest {
+ 
+         final List<KeyValue<String, Long>> results = receiveMessages(
+             new StringDeserializer(),
+-            new LongDeserializer()
+-            , 10);
++            new LongDeserializer(),
++            10);
+         Collections.sort(results, new Comparator<KeyValue<String, Long>>() {
+             @Override
+             public int compare(final KeyValue<String, Long> o1, final KeyValue<String, Long> o2) {
+diff --git a/streams/src/test/java/org/apache/kafka/test/ProcessorTopologyTestDriver.java b/streams/src/test/java/org/apache/kafka/test/ProcessorTopologyTestDriver.java
+index 83a9092..1bedd87 100644
+--- a/streams/src/test/java/org/apache/kafka/test/ProcessorTopologyTestDriver.java
++++ b/streams/src/test/java/org/apache/kafka/test/ProcessorTopologyTestDriver.java
+@@ -345,7 +345,7 @@ public class ProcessorTopologyTestDriver {
+             // consumer.subscribe(new TopicPartition(topicName, 1));
+             // Set up the partition that matches the ID (which is what ProcessorStateManager expects) ...
+             List<PartitionInfo> partitionInfos = new ArrayList<>();
+-            partitionInfos.add(new PartitionInfo(topicName , id.partition, null, null, null));
++            partitionInfos.add(new PartitionInfo(topicName, id.partition, null, null, null));
+             consumer.updatePartitions(topicName, partitionInfos);
+             consumer.updateEndOffsets(Collections.singletonMap(new TopicPartition(topicName, id.partition), 0L));
+         }
 -- 
-2.13.1
+2.14.1
 
