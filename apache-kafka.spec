@@ -34,6 +34,9 @@ tar -xf core/build/distributions/kafka_2.11-0.10.1.1.tgz \
 -C %{buildroot}/usr/share/apache-kafka \
 --strip 1
 
+# Remove *.bat files
+rm -rf %{buildroot}/usr/share/apache-kafka/bin/windows
+
 # Add helper scripts
 mkdir -p %{buildroot}/usr/bin
 elements=(kafka-acls.sh kafka-configs.sh kafka-console-consumer.sh \
@@ -103,25 +106,6 @@ gradle --offline -PscalaVersion=2.11 -PrepoDir=/usr/share/apache-kafka test || :
 /usr/share/apache-kafka/bin/kafka-topics.sh
 /usr/share/apache-kafka/bin/kafka-verifiable-consumer.sh
 /usr/share/apache-kafka/bin/kafka-verifiable-producer.sh
-/usr/share/apache-kafka/bin/windows/kafka-acls.bat
-/usr/share/apache-kafka/bin/windows/kafka-console-consumer.bat
-/usr/share/apache-kafka/bin/windows/kafka-console-producer.bat
-/usr/share/apache-kafka/bin/windows/kafka-consumer-offset-checker.bat
-/usr/share/apache-kafka/bin/windows/kafka-consumer-perf-test.bat
-/usr/share/apache-kafka/bin/windows/kafka-mirror-maker.bat
-/usr/share/apache-kafka/bin/windows/kafka-preferred-replica-election.bat
-/usr/share/apache-kafka/bin/windows/kafka-producer-perf-test.bat
-/usr/share/apache-kafka/bin/windows/kafka-reassign-partitions.bat
-/usr/share/apache-kafka/bin/windows/kafka-replay-log-producer.bat
-/usr/share/apache-kafka/bin/windows/kafka-replica-verification.bat
-/usr/share/apache-kafka/bin/windows/kafka-run-class.bat
-/usr/share/apache-kafka/bin/windows/kafka-server-start.bat
-/usr/share/apache-kafka/bin/windows/kafka-server-stop.bat
-/usr/share/apache-kafka/bin/windows/kafka-simple-consumer-shell.bat
-/usr/share/apache-kafka/bin/windows/kafka-topics.bat
-/usr/share/apache-kafka/bin/windows/zookeeper-server-start.bat
-/usr/share/apache-kafka/bin/windows/zookeeper-server-stop.bat
-/usr/share/apache-kafka/bin/windows/zookeeper-shell.bat
 /usr/share/apache-kafka/bin/zookeeper-security-migration.sh
 /usr/share/apache-kafka/bin/zookeeper-server-start.sh
 /usr/share/apache-kafka/bin/zookeeper-server-stop.sh
