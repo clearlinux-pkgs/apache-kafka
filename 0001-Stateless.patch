@@ -1,0 +1,101 @@
+From bfdc27ba199049b4cb3a84ee730edebaebd32c05 Mon Sep 17 00:00:00 2001
+From: Athenas Jimenez Gonzalez <athenas.jimenez.gonzalez@intel.com>
+Date: Tue, 22 Aug 2017 21:04:38 +0000
+Subject: [PATCH 1/2] Stateless
+
+---
+ bin/connect-distributed.sh    | 6 +++++-
+ bin/connect-standalone.sh     | 6 +++++-
+ bin/kafka-run-class.sh        | 6 +++++-
+ bin/kafka-server-start.sh     | 6 +++++-
+ bin/zookeeper-server-start.sh | 6 +++++-
+ 5 files changed, 25 insertions(+), 5 deletions(-)
+
+diff --git a/bin/connect-distributed.sh b/bin/connect-distributed.sh
+index 99cd27b..89b943f 100755
+--- a/bin/connect-distributed.sh
++++ b/bin/connect-distributed.sh
+@@ -23,7 +23,11 @@ fi
+ base_dir=$(dirname $0)
+ 
+ if [ "x$KAFKA_LOG4J_OPTS" = "x" ]; then
+-    export KAFKA_LOG4J_OPTS="-Dlog4j.configuration=file:$base_dir/../config/connect-log4j.properties"
++    if [ -d /etc/kafka -a "$(ls -A /etc/kafka)" ] ; then
++        export KAFKA_LOG4J_OPTS="-Dlog4j.configuration=file:/etc/kafka/connect-log4j.properties"
++    else
++        export KAFKA_LOG4J_OPTS="-Dlog4j.configuration=file:/usr/share/defaults/kafka/connect-log4j.properties"
++    fi
+ fi
+ 
+ EXTRA_ARGS=${EXTRA_ARGS-'-name connectDistributed'}
+diff --git a/bin/connect-standalone.sh b/bin/connect-standalone.sh
+index 623562a..e7c6bcc 100755
+--- a/bin/connect-standalone.sh
++++ b/bin/connect-standalone.sh
+@@ -23,7 +23,11 @@ fi
+ base_dir=$(dirname $0)
+ 
+ if [ "x$KAFKA_LOG4J_OPTS" = "x" ]; then
+-    export KAFKA_LOG4J_OPTS="-Dlog4j.configuration=file:$base_dir/../config/connect-log4j.properties"
++    if [ -d /etc/kafka -a "$(ls -A /etc/kafka)" ] ; then
++        export KAFKA_LOG4J_OPTS="-Dlog4j.configuration=file:/etc/kafka/connect-log4j.properties"
++    else
++        export KAFKA_LOG4J_OPTS="-Dlog4j.configuration=file:/usr/share/defaults/kafka/connect-log4j.properties"
++    fi
+ fi
+ 
+ EXTRA_ARGS=${EXTRA_ARGS-'-name connectStandalone'}
+diff --git a/bin/kafka-run-class.sh b/bin/kafka-run-class.sh
+index 1f5140b..5aa96c0 100755
+--- a/bin/kafka-run-class.sh
++++ b/bin/kafka-run-class.sh
+@@ -158,7 +158,11 @@ fi
+ # Log4j settings
+ if [ -z "$KAFKA_LOG4J_OPTS" ]; then
+   # Log to console. This is a tool.
+-  LOG4J_DIR="$base_dir/config/tools-log4j.properties"
++  if [ -d /etc/kafka -a "$(ls -A /etc/kafka)" ] ; then
++      export LOG4J_DIR="/etc/kafka/tools-log4j.properties"
++  else
++      export LOG4J_DIR="/usr/share/defaults/kafka/tools-log4j.properties"
++  fi
+   # If Cygwin is detected, LOG4J_DIR is converted to Windows format.
+   (( CYGWIN )) && LOG4J_DIR=$(cygpath --path --mixed "${LOG4J_DIR}")
+   KAFKA_LOG4J_OPTS="-Dlog4j.configuration=file:${LOG4J_DIR}"
+diff --git a/bin/kafka-server-start.sh b/bin/kafka-server-start.sh
+index 5a53126..c6f72c8 100755
+--- a/bin/kafka-server-start.sh
++++ b/bin/kafka-server-start.sh
+@@ -22,7 +22,11 @@ fi
+ base_dir=$(dirname $0)
+ 
+ if [ "x$KAFKA_LOG4J_OPTS" = "x" ]; then
+-    export KAFKA_LOG4J_OPTS="-Dlog4j.configuration=file:$base_dir/../config/log4j.properties"
++    if [ -d /etc/kafka -a "$(ls -A /etc/kafka)" ] ; then
++        export KAFKA_LOG4J_OPTS="-Dlog4j.configuration=file:/etc/kafka/log4j.properties"
++    else
++        export KAFKA_LOG4J_OPTS="-Dlog4j.configuration=file:/usr/share/defaults/kafka/log4j.properties"
++    fi
+ fi
+ 
+ if [ "x$KAFKA_HEAP_OPTS" = "x" ]; then
+diff --git a/bin/zookeeper-server-start.sh b/bin/zookeeper-server-start.sh
+index bd9c114..2671f3c 100755
+--- a/bin/zookeeper-server-start.sh
++++ b/bin/zookeeper-server-start.sh
+@@ -22,7 +22,11 @@ fi
+ base_dir=$(dirname $0)
+ 
+ if [ "x$KAFKA_LOG4J_OPTS" = "x" ]; then
+-    export KAFKA_LOG4J_OPTS="-Dlog4j.configuration=file:$base_dir/../config/log4j.properties"
++    if [ -d /etc/kafka -a "$(ls -A /etc/kafka)" ] ; then
++        export KAFKA_LOG4J_OPTS="-Dlog4j.configuration=file:/etc/kafka/log4j.properties"
++    else
++        export KAFKA_LOG4J_OPTS="-Dlog4j.configuration=file:/usr/share/defaults/kafka/log4j.properties"
++    fi
+ fi
+ 
+ if [ "x$KAFKA_HEAP_OPTS" = "x" ]; then
+-- 
+2.14.1
+

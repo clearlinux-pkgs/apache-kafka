@@ -1,6 +1,6 @@
 Name     : apache-kafka
 Version  : 0.10.1.1
-Release  : 5
+Release  : 6
 URL      : http://apache.mirrors.lucidnetworks.net/kafka/0.10.1.1/kafka-0.10.1.1-src.tgz
 Source0  : http://apache.mirrors.lucidnetworks.net/kafka/0.10.1.1/kafka-0.10.1.1-src.tgz
 Source1  : kafka-script
@@ -9,6 +9,8 @@ Group    : Development/Tools
 License  : Apache-2.0
 Patch0   : 0001-Fix-checkstyle-errors.patch
 Patch1   : 0001-maven-repo-config.patch
+Patch2   : 0001-Stateless.patch
+Patch3   : 0002-Change-default-log-dir.patch
 BuildRequires : gradle
 BuildRequires : openjdk-dev
 BuildRequires : kafka-dep
@@ -20,6 +22,8 @@ No detailed description available
 %setup -q -n kafka-0.10.1.1-src
 %patch0 -p1
 %patch1 -p1 
+%patch2 -p1 
+%patch3 -p1 
 
 mkdir -p %{buildroot}/.m2
 cp -R /usr/share/apache-kafka/.m2/* %{buildroot}/.m2
@@ -33,6 +37,10 @@ mkdir -p %{buildroot}/usr/share/apache-kafka
 tar -xf core/build/distributions/kafka_2.11-0.10.1.1.tgz \
 -C %{buildroot}/usr/share/apache-kafka \
 --strip 1
+
+# Move config files to /usr/share/defaults
+mkdir -p %{buildroot}/usr/share/defaults/kafka
+mv %{buildroot}/usr/share/apache-kafka/config/* %{buildroot}/usr/share/defaults/kafka
 
 # Remove *.bat files
 rm -rf %{buildroot}/usr/share/apache-kafka/bin/windows
@@ -110,19 +118,6 @@ gradle --offline -PscalaVersion=2.11 -PrepoDir=/usr/share/apache-kafka test || :
 /usr/share/apache-kafka/bin/zookeeper-server-start.sh
 /usr/share/apache-kafka/bin/zookeeper-server-stop.sh
 /usr/share/apache-kafka/bin/zookeeper-shell.sh
-/usr/share/apache-kafka/config/connect-console-sink.properties
-/usr/share/apache-kafka/config/connect-console-source.properties
-/usr/share/apache-kafka/config/connect-distributed.properties
-/usr/share/apache-kafka/config/connect-file-sink.properties
-/usr/share/apache-kafka/config/connect-file-source.properties
-/usr/share/apache-kafka/config/connect-log4j.properties
-/usr/share/apache-kafka/config/connect-standalone.properties
-/usr/share/apache-kafka/config/consumer.properties
-/usr/share/apache-kafka/config/log4j.properties
-/usr/share/apache-kafka/config/producer.properties
-/usr/share/apache-kafka/config/server.properties
-/usr/share/apache-kafka/config/tools-log4j.properties
-/usr/share/apache-kafka/config/zookeeper.properties
 /usr/share/apache-kafka/libs/aopalliance-repackaged-2.4.0-b34.jar
 /usr/share/apache-kafka/libs/argparse4j-0.5.0.jar
 /usr/share/apache-kafka/libs/connect-api-0.10.1.1.jar
@@ -187,3 +182,16 @@ gradle --offline -PscalaVersion=2.11 -PrepoDir=/usr/share/apache-kafka test || :
 /usr/share/apache-kafka/libs/zkclient-0.9.jar
 /usr/share/apache-kafka/libs/zookeeper-3.4.8.jar
 /usr/share/apache-kafka/site-docs/kafka_2.11-0.10.1.1-site-docs.tgz
+/usr/share/defaults/kafka/connect-console-sink.properties
+/usr/share/defaults/kafka/connect-console-source.properties
+/usr/share/defaults/kafka/connect-distributed.properties
+/usr/share/defaults/kafka/connect-file-sink.properties
+/usr/share/defaults/kafka/connect-file-source.properties
+/usr/share/defaults/kafka/connect-log4j.properties
+/usr/share/defaults/kafka/connect-standalone.properties
+/usr/share/defaults/kafka/consumer.properties
+/usr/share/defaults/kafka/log4j.properties
+/usr/share/defaults/kafka/producer.properties
+/usr/share/defaults/kafka/server.properties
+/usr/share/defaults/kafka/tools-log4j.properties
+/usr/share/defaults/kafka/zookeeper.properties
