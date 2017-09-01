@@ -4,6 +4,7 @@ Release  : 6
 URL      : http://apache.mirrors.lucidnetworks.net/kafka/0.10.1.1/kafka-0.10.1.1-src.tgz
 Source0  : http://apache.mirrors.lucidnetworks.net/kafka/0.10.1.1/kafka-0.10.1.1-src.tgz
 Source1  : kafka-script
+Source2  : apache-kafka.service
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0
@@ -11,6 +12,7 @@ Patch0   : 0001-Fix-checkstyle-errors.patch
 Patch1   : 0001-maven-repo-config.patch
 Patch2   : 0001-Stateless.patch
 Patch3   : 0002-Change-default-log-dir.patch
+Patch4   : 0001-Stateless-2.patch
 BuildRequires : gradle
 BuildRequires : openjdk-dev
 BuildRequires : kafka-dep
@@ -24,6 +26,7 @@ No detailed description available
 %patch1 -p1 
 %patch2 -p1 
 %patch3 -p1 
+%patch4 -p1 
 
 mkdir -p %{buildroot}/.m2
 cp -R /usr/share/apache-kafka/.m2/* %{buildroot}/.m2
@@ -37,6 +40,9 @@ mkdir -p %{buildroot}/usr/share/apache-kafka
 tar -xf core/build/distributions/kafka_2.11-0.10.1.1.tgz \
 -C %{buildroot}/usr/share/apache-kafka \
 --strip 1
+
+mkdir -p %{buildroot}/usr/lib/systemd/system/
+cp %{SOURCE2} %{buildroot}/usr/lib/systemd/system/apache-kafka.service
 
 # Move config files to /usr/share/defaults
 mkdir -p %{buildroot}/usr/share/defaults/kafka
@@ -89,6 +95,7 @@ gradle --offline -PscalaVersion=2.11 -PrepoDir=/usr/share/apache-kafka test || :
 /usr/bin/kafka-topics.sh
 /usr/bin/kafka-verifiable-consumer.sh
 /usr/bin/kafka-verifiable-producer.sh
+/usr/lib/systemd/system/apache-kafka.service
 /usr/share/apache-kafka/LICENSE
 /usr/share/apache-kafka/NOTICE
 /usr/share/apache-kafka/bin/connect-distributed.sh
