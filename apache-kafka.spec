@@ -1,6 +1,6 @@
 Name     : apache-kafka
 Version  : 0.10.1.1
-Release  : 6
+Release  : 7
 URL      : http://apache.mirrors.lucidnetworks.net/kafka/0.10.1.1/kafka-0.10.1.1-src.tgz
 Source0  : http://apache.mirrors.lucidnetworks.net/kafka/0.10.1.1/kafka-0.10.1.1-src.tgz
 Source1  : kafka-script
