@@ -1,5 +1,5 @@
 PKG_NAME := apache-kafka
-URL := http://apache.mirrors.lucidnetworks.net/kafka/0.10.2.2/kafka-0.10.2.2-src.tgz
-
+URL = https://github.com/apache/kafka/archive/2.3.0.tar.gz
+ARCHIVES = 
 
 include ../common/Makefile.common

@@ -1,2 +1,30 @@
 # This file contains additional build requirements that did not get
 # picked up automatically. One name per line, no whitespace.
+mvn(com.fasterxml.jackson.jaxrs:jackson-jaxrs-providers:pom) = 2.9.9
+mvn(org.apache.httpcomponents:httpcomponents-client:pom) = 4.5.8
+mvn(org.codehaus.plexus:plexus:pom) = 5.1
+mvn(com.fasterxml.jackson.module:jackson-modules-base:pom) = 2.9.9
+mvn(com.fasterxml.jackson.module:jackson-modules-java8:pom) = 2.9.9
+mvn(com.fasterxml.jackson:jackson-base:pom) = 2.9.9
+mvn(com.fasterxml.jackson:jackson-bom:pom) = 2.9.9
+mvn(com.h3xstream.retirejs:retirejs-root-pom:pom) = 3.0.1
+mvn(com.sun.mail:all:pom) = 1.6.3
+mvn(com.typesafe.sbt:compiler-interface:pom) = 0.13.15
+mvn(net.sf.ehcache:ehcache-root:pom) = 2.10.4
+mvn(org.apache.directory.project:project:pom) = 40
+mvn(org.apache.directory.project:project:pom) = 41
+mvn(org.apache.lucene:lucene-parent:pom) = 7.6.0
+mvn(org.apache.lucene:lucene-solr-grandparent:pom) = 7.6.0
+mvn(org.apache.maven:maven:pom) = 3.6.1
+mvn(org.apache.servicemix.bundles:bundles-pom:pom) = 11
+mvn(org.apache.servicemix:servicemix-pom:pom) = 5
+mvn(org.eclipse.ee4j:project:pom) = 1.0.4
+mvn(org.eclipse.ee4j:project:pom) = 1.0.5
+mvn(org.eclipse.jetty:jetty-project:pom) = 9.4.18.v20190429
+mvn(org.glassfish.hk2:external:pom) = 2.5.0
+mvn(org.glassfish.jersey.containers:project:pom) = 2.28
+mvn(org.glassfish.jersey.inject:project:pom) = 2.28
+mvn(org.glassfish.jersey.media:project:pom) = 2.28
+mvn(org.glassfish.jersey:project:pom) = 2.28
+mvn-jgit
+mvn-spotbugs

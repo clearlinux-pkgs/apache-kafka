@@ -1,0 +1,23 @@
+From 76d6b28a9265496c2d924233217a763d72e56e93 Mon Sep 17 00:00:00 2001
+From: Athenas Jimenez <athenas.jimenez.gonzalez@intel.com>
+Date: Tue, 1 Oct 2019 15:52:52 +0000
+Subject: [PATCH] kafka-script
+
+---
+ kafka-script | 4 ++++
+ 1 file changed, 4 insertions(+)
+ create mode 100644 kafka-script
+
+diff --git a/kafka-script b/kafka-script
+new file mode 100644
+index 0000000..a3b77c4
+--- /dev/null
++++ b/kafka-script
+@@ -0,0 +1,4 @@
++#!/bin/sh
++
++export KAFKA_HOME="${KAFKA_HOME:-/usr/share/apache-kafka}"
++$KAFKA_HOME/bin/@@CMD@@ "$@"
+-- 
+2.23.0
+

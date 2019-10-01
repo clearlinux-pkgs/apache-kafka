@@ -1,0 +1,30 @@
+mkdir -p %{buildroot}/usr/share/apache-kafka
+tar -xf core/build/distributions/kafka_2.12-2.3.0.tgz \
+    -C %{buildroot}/usr/share/apache-kafka \
+    --strip 1
+
+# Move config files to /usr/share/defaults
+mkdir -p %{buildroot}/usr/share/defaults/kafka
+mv %{buildroot}/usr/share/apache-kafka/config/* %{buildroot}/usr/share/defaults/kafka
+
+# Remove *.bat files
+rm -rf %{buildroot}/usr/share/apache-kafka/bin/windows
+
+# Add helper scripts
+mkdir -p %{buildroot}/usr/bin
+elements=(kafka-acls.sh kafka-configs.sh kafka-console-consumer.sh \
+         kafka-console-producer.sh kafka-consumer-groups.sh \
+         kafka-consumer-offset-checker.sh kafka-consumer-perf-test.sh \
+         kafka-mirror-maker.sh kafka-preferred-replica-election.sh \
+         kafka-producer-perf-test.sh kafka-reassign-partitions.sh \
+         kafka-replay-log-producer.sh kafka-replica-verification.sh \
+         kafka-run-class.sh kafka-server-start.sh kafka-server-stop.sh \
+         kafka-simple-consumer-shell.sh kafka-streams-application-reset.sh \
+         kafka-topics.sh kafka-verifiable-consumer.sh \
+         kafka-verifiable-producer.sh)
+for cmd in "${elements[@]}"
+do
+    sed s/@@CMD@@/$cmd/ kafka-script >%{buildroot}/usr/bin/$cmd
+    chmod +x %{buildroot}/usr/bin/$cmd
+done
+

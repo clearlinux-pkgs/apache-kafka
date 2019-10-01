@@ -1,0 +1,249 @@
+2.3.0
+mvn(cglib:cglib-nodep:jar) = 3.2.9
+mvn(com.101tec:zkclient:jar) = 0.11
+mvn(com.diffplug.durian:durian-collect:jar) = 1.2.0
+mvn(com.diffplug.durian:durian-core:jar) = 1.2.0
+mvn(com.diffplug.durian:durian-io:jar) = 1.2.0
+mvn(com.diffplug.spotless:spotless-plugin-gradle:jar) = 3.23.0
+mvn(com.esotericsoftware:minlog:jar) = 1.3
+mvn(com.fasterxml.jackson.core:jackson-annotations:jar) = 2.9.0
+mvn(com.fasterxml.jackson.core:jackson-annotations:jar) = 2.9.9
+mvn(com.fasterxml.jackson.core:jackson-core:jar) = 2.9.9
+mvn(com.fasterxml.jackson.core:jackson-databind:jar) = 2.9.9
+mvn(com.fasterxml.jackson.dataformat:jackson-dataformat-csv:jar) = 2.9.9
+mvn(com.fasterxml.jackson.dataformat:jackson-dataformats-text:jar) = 2.9.9
+mvn(com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar) = 2.9.9
+mvn(com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:jar) = 2.9.9
+mvn(com.fasterxml.jackson.jaxrs:jackson-jaxrs-providers:jar) = 2.9.9
+mvn(com.fasterxml.jackson.module:jackson-module-jaxb-annotations:jar) = 2.9.9
+mvn(com.fasterxml.jackson.module:jackson-module-paranamer:jar) = 2.9.9
+mvn(com.fasterxml.jackson.module:jackson-module-scala_2.12:jar) = 2.9.9
+mvn(com.fasterxml.jackson.module:jackson-modules-base:jar) = 2.9.9
+mvn(com.fasterxml.jackson.module:jackson-modules-java8:jar) = 2.9.9
+mvn(com.fasterxml.jackson:jackson-base:jar) = 2.9.9
+mvn(com.fasterxml.jackson:jackson-bom:jar) = 2.9.9
+mvn(com.fasterxml.jackson:jackson-parent:pom) = 2.9.1.2
+mvn(com.github.luben:zstd-jni:jar) = 1.4.0.1
+mvn(com.github.spullara.mustache.java:compiler:jar) = 0.8.17
+mvn(com.google.guava:guava:jar) = 27.0.1.jre
+mvn(com.googlecode.concurrent-trees:concurrent-trees:jar) = 2.6.1
+mvn(com.googlecode.javaewah:JavaEWAH:jar) = 1.1.6
+mvn(com.h2database:h2:jar) = 1.4.196
+mvn(com.h3xstream.retirejs:retirejs-core:jar) = 3.0.1
+mvn(com.h3xstream.retirejs:retirejs-root-pom:jar) = 3.0.1
+mvn(com.jcraft:jzlib:jar) = 1.1.1
+mvn(com.sun.mail:all:jar) = 1.6.3
+mvn(com.sun.mail:mailapi:jar) = 1.6.3
+mvn(com.thoughtworks.paranamer:paranamer:jar) = 2.8
+mvn(com.typesafe.sbt:compiler-interface:jar) = 0.13.15
+mvn(com.typesafe.sbt:incremental-compiler:jar) = 0.13.15
+mvn(com.typesafe.sbt:sbt-interface:jar) = 0.13.15
+mvn(com.typesafe.scala-logging:scala-logging_2.12:jar) = 3.9.0
+mvn(com.typesafe.zinc:zinc:jar) = 0.3.15
+mvn(com.vdurmont:semver4j:jar) = 2.2.0
+mvn(com.yammer.metrics:metrics-core:jar) = 2.2.0
+mvn(commons-codec:commons-codec:jar) = 1.11
+mvn(commons-logging:commons-logging:jar) = 1.2
+mvn(commons-pool:commons-pool:jar) = 1.6
+mvn(gradle.plugin.com.github.spotbugs:spotbugs-gradle-plugin:jar) = 1.6.9
+mvn(jakarta.annotation:jakarta.annotation-api:jar) = 1.3.4
+mvn(jakarta.ws.rs:jakarta.ws.rs-api:jar) = 2.1.5
+mvn(javax.activation:activation:jar) = 1.1.1
+mvn(javax.servlet:javax.servlet-api:jar) = 3.1.0
+mvn(javax.validation:validation-api:jar) = 2.0.1.Final
+mvn(javax.ws.rs:javax.ws.rs-api:jar) = 2.1.1
+mvn(javax.xml.bind:jaxb-api-parent:pom) = 2.3.0
+mvn(javax.xml.bind:jaxb-api:jar) = 2.3.0
+mvn(jfree:jfreechart:jar) = 1.0.0
+mvn(jfreechart:jfreechart:jar) = 1.0.0
+mvn(joda-time:joda-time:jar) = 1.6
+mvn(junit:junit:jar) = 4.13.beta.2
+mvn(log4j:log4j:jar) = 1.2.17
+mvn(net.bytebuddy:byte-buddy-agent:jar) = 1.9.10
+mvn(net.bytebuddy:byte-buddy-agent:jar) = 1.9.3
+mvn(net.bytebuddy:byte-buddy-parent:pom) = 1.9.10
+mvn(net.bytebuddy:byte-buddy:jar) = 1.9.10
+mvn(net.bytebuddy:byte-buddy:jar) = 1.9.3
+mvn(net.sf.ehcache:ehcache-parent:pom) = 2.18
+mvn(net.sf.ehcache:ehcache-root:jar) = 2.10.4
+mvn(net.sf.ehcache:ehcache:jar) = 2.10.4
+mvn(net.sf.jopt-simple:jopt-simple:jar) = 5.0.4
+mvn(net.sourceforge.argparse4j:argparse4j:jar) = 0.7.0
+mvn(org.ajoberstar.grgit:grgit-core:jar) = 3.1.1
+mvn(org.apache.commons:commons-parent:pom) = 45
+mvn(org.apache.commons:commons-text:jar) = 1.3
+mvn(org.apache.directory.api:api-all:jar) = 1.0.2
+mvn(org.apache.directory.api:api-asn1-api:jar) = 1.0.0
+mvn(org.apache.directory.api:api-asn1-ber:jar) = 1.0.0
+mvn(org.apache.directory.api:api-i18n:jar) = 1.0.0
+mvn(org.apache.directory.api:api-ldap-client-api:jar) = 1.0.0
+mvn(org.apache.directory.api:api-ldap-client-parent:pom) = 1.0.0
+mvn(org.apache.directory.api:api-ldap-codec-core:jar) = 1.0.0
+mvn(org.apache.directory.api:api-ldap-codec-parent:pom) = 1.0.0
+mvn(org.apache.directory.api:api-ldap-extras-aci:jar) = 1.0.0
+mvn(org.apache.directory.api:api-ldap-extras-codec-api:jar) = 1.0.0
+mvn(org.apache.directory.api:api-ldap-extras-codec:jar) = 1.0.0
+mvn(org.apache.directory.api:api-ldap-extras-parent:pom) = 1.0.0
+mvn(org.apache.directory.api:api-ldap-extras-sp:jar) = 1.0.0
+mvn(org.apache.directory.api:api-ldap-extras-trigger:jar) = 1.0.0
+mvn(org.apache.directory.api:api-ldap-extras-util:jar) = 1.0.0
+mvn(org.apache.directory.api:api-ldap-model:jar) = 1.0.0
+mvn(org.apache.directory.api:api-ldap-parent:pom) = 1.0.0
+mvn(org.apache.directory.api:api-parent:pom) = 1.0.2
+mvn(org.apache.directory.api:api-util:jar) = 1.0.0
+mvn(org.apache.directory.jdbm:apacheds-jdbm1:jar) = 2.0.0.M3
+mvn(org.apache.directory.mavibot:mavibot:jar) = 1.0.0.M8
+mvn(org.apache.directory.project:project:jar) = 40
+mvn(org.apache.directory.project:project:jar) = 41
+mvn(org.apache.directory.server:apacheds-core-api:jar) = 2.0.0.M24
+mvn(org.apache.directory.server:apacheds-core-avl:jar) = 2.0.0.M24
+mvn(org.apache.directory.server:apacheds-core-constants:jar) = 2.0.0.M24
+mvn(org.apache.directory.server:apacheds-core-shared:jar) = 2.0.0.M24
+mvn(org.apache.directory.server:apacheds-interceptor-kerberos:jar) = 2.0.0.M24
+mvn(org.apache.directory.server:apacheds-interceptors-admin:jar) = 2.0.0.M24
+mvn(org.apache.directory.server:apacheds-interceptors-authn:jar) = 2.0.0.M24
+mvn(org.apache.directory.server:apacheds-interceptors-authz:jar) = 2.0.0.M24
+mvn(org.apache.directory.server:apacheds-interceptors-changelog:jar) = 2.0.0.M24
+mvn(org.apache.directory.server:apacheds-interceptors-collective:jar) = 2.0.0.M24
+mvn(org.apache.directory.server:apacheds-interceptors-event:jar) = 2.0.0.M24
+mvn(org.apache.directory.server:apacheds-interceptors-exception:jar) = 2.0.0.M24
+mvn(org.apache.directory.server:apacheds-interceptors-journal:jar) = 2.0.0.M24
+mvn(org.apache.directory.server:apacheds-interceptors-normalization:jar) = 2.0.0.M24
+mvn(org.apache.directory.server:apacheds-interceptors-number:jar) = 2.0.0.M24
+mvn(org.apache.directory.server:apacheds-interceptors-operational:jar) = 2.0.0.M24
+mvn(org.apache.directory.server:apacheds-interceptors-referral:jar) = 2.0.0.M24
+mvn(org.apache.directory.server:apacheds-interceptors-schema:jar) = 2.0.0.M24
+mvn(org.apache.directory.server:apacheds-interceptors-subtree:jar) = 2.0.0.M24
+mvn(org.apache.directory.server:apacheds-interceptors-trigger:jar) = 2.0.0.M24
+mvn(org.apache.directory.server:apacheds-jdbm-partition:jar) = 2.0.0.M24
+mvn(org.apache.directory.server:apacheds-kerberos-codec:jar) = 2.0.0.M24
+mvn(org.apache.directory.server:apacheds-ldif-partition:jar) = 2.0.0.M24
+mvn(org.apache.directory.server:apacheds-mavibot-partition:jar) = 2.0.0.M24
+mvn(org.apache.directory.server:apacheds-parent:pom) = 2.0.0.M24
+mvn(org.apache.directory.server:apacheds-protocol-kerberos:jar) = 2.0.0.M24
+mvn(org.apache.directory.server:apacheds-protocol-ldap:jar) = 2.0.0.M24
+mvn(org.apache.directory.server:apacheds-protocol-shared:jar) = 2.0.0.M24
+mvn(org.apache.directory.server:apacheds-xdbm-partition:jar) = 2.0.0.M24
+mvn(org.apache.httpcomponents:httpclient:jar) = 4.5.8
+mvn(org.apache.httpcomponents:httpcomponents-parent:pom) = 11
+mvn(org.apache.httpcomponents:httpcore:jar) = 4.4.11
+mvn(org.apache.lucene:lucene-analyzers-common:jar) = 7.6.0
+mvn(org.apache.lucene:lucene-core:jar) = 7.6.0
+mvn(org.apache.lucene:lucene-parent:jar) = 7.6.0
+mvn(org.apache.lucene:lucene-queries:jar) = 7.6.0
+mvn(org.apache.lucene:lucene-queryparser:jar) = 7.6.0
+mvn(org.apache.lucene:lucene-sandbox:jar) = 7.6.0
+mvn(org.apache.lucene:lucene-solr-grandparent:jar) = 7.6.0
+mvn(org.apache.maven:maven-artifact:jar) = 3.6.1
+mvn(org.apache.maven:maven-parent:pom) = 33
+mvn(org.apache.maven:maven:jar) = 3.6.1
+mvn(org.apache.mina:mina-core:jar) = 2.0.16
+mvn(org.apache.servicemix.bundles:bundles-pom:jar) = 6
+mvn(org.apache.servicemix.bundles:bundles-pom:jar) = 8
+mvn(org.apache.servicemix.bundles:org.apache.servicemix.bundles.antlr:jar) = 2.7.7_5
+mvn(org.apache.servicemix.bundles:org.apache.servicemix.bundles.dom4j:jar) = 1.6.1_5
+mvn(org.apache.servicemix.bundles:org.apache.servicemix.bundles.xpp3:jar) = 1.1.4c_7
+mvn(org.apache.servicemix:servicemix-pom:jar) = 5
+mvn(org.apache.yetus:audience-annotations:jar) = 0.5.0
+mvn(org.apache.zookeeper:zookeeper:jar) = 3.4.14
+mvn(org.bouncycastle:bcpg-jdk15on:jar) = 1.60
+mvn(org.bouncycastle:bcpkix-jdk15on:jar) = 1.60
+mvn(org.bouncycastle:bcpkix-jdk15on:jar) = 1.61
+mvn(org.bouncycastle:bcprov-jdk15on:jar) = 1.60
+mvn(org.checkerframework:checker-qual:jar) = 2.5.2
+mvn(org.codehaus.groovy:groovy-backports-compat23:jar) = 2.4.15
+mvn(org.codehaus.mojo:animal-sniffer-annotations:jar) = 1.17
+mvn(org.codehaus.mojo:animal-sniffer-parent:pom) = 1.17
+mvn(org.codehaus.mojo:mojo-parent:pom) = 40
+mvn(org.codehaus.plexus:plexus-utils:jar) = 3.2.0
+mvn(org.codehaus.plexus:plexus:jar) = 5.1
+mvn(org.easymock:easymock:jar) = 4.0.2
+mvn(org.eclipse.ee4j:project:jar) = 1.0.4
+mvn(org.eclipse.ee4j:project:jar) = 1.0.5
+mvn(org.eclipse.jetty:jetty-client:jar) = 9.4.18.v20190429
+mvn(org.eclipse.jetty:jetty-continuation:jar) = 9.4.18.v20190429
+mvn(org.eclipse.jetty:jetty-http:jar) = 9.4.18.v20190429
+mvn(org.eclipse.jetty:jetty-io:jar) = 9.4.18.v20190429
+mvn(org.eclipse.jetty:jetty-project:jar) = 9.4.18.v20190429
+mvn(org.eclipse.jetty:jetty-security:jar) = 9.4.18.v20190429
+mvn(org.eclipse.jetty:jetty-server:jar) = 9.4.18.v20190429
+mvn(org.eclipse.jetty:jetty-servlet:jar) = 9.4.18.v20190429
+mvn(org.eclipse.jetty:jetty-servlets:jar) = 9.4.18.v20190429
+mvn(org.eclipse.jetty:jetty-util:jar) = 9.4.18.v20190429
+mvn(org.glassfish.hk2.external:aopalliance-repackaged:jar) = 2.5.0
+mvn(org.glassfish.hk2.external:jakarta.inject:jar) = 2.5.0
+mvn(org.glassfish.hk2:external:jar) = 2.5.0
+mvn(org.glassfish.hk2:hk2-api:jar) = 2.5.0
+mvn(org.glassfish.hk2:hk2-bom:pom) = 2.5.0
+mvn(org.glassfish.hk2:hk2-locator:jar) = 2.5.0
+mvn(org.glassfish.hk2:hk2-parent:pom) = 2.5.0
+mvn(org.glassfish.hk2:hk2-utils:jar) = 2.5.0
+mvn(org.glassfish.hk2:osgi-resource-locator:jar) = 1.0.1
+mvn(org.glassfish.jersey.containers:jersey-container-servlet-core:jar) = 2.28
+mvn(org.glassfish.jersey.containers:jersey-container-servlet:jar) = 2.28
+mvn(org.glassfish.jersey.containers:project:jar) = 2.28
+mvn(org.glassfish.jersey.core:jersey-client:jar) = 2.28
+mvn(org.glassfish.jersey.core:jersey-common:jar) = 2.28
+mvn(org.glassfish.jersey.core:jersey-server:jar) = 2.28
+mvn(org.glassfish.jersey.inject:jersey-hk2:jar) = 2.28
+mvn(org.glassfish.jersey.inject:project:jar) = 2.28
+mvn(org.glassfish.jersey.media:jersey-media-jaxb:jar) = 2.28
+mvn(org.glassfish.jersey.media:project:jar) = 2.28
+mvn(org.glassfish.jersey:project:jar) = 2.28
+mvn(org.glassfish:javax.json:jar) = 1.0.4
+mvn(org.hamcrest:hamcrest-core:jar) = 1.3
+mvn(org.hamcrest:hamcrest:jar) = 2.1
+mvn(org.javassist:javassist:jar) = 3.22.0.CR2
+mvn(org.javassist:javassist:jar) = 3.24.0.GA
+mvn(org.json:json:jar) = 20140107
+mvn(org.jsoup:jsoup:jar) = 1.11.3
+mvn(org.lz4:lz4-java:jar) = 1.6.0
+mvn(org.mockito:mockito-core:jar) = 2.27.0
+mvn(org.objenesis:objenesis:jar) = 2.6
+mvn(org.objenesis:objenesis:jar) = 3.0.1
+mvn(org.owasp:dependency-check-core:jar) = 4.0.2
+mvn(org.owasp:dependency-check-utils:jar) = 4.0.2
+mvn(org.powermock:powermock-api-easymock:jar) = 2.0.2
+mvn(org.powermock:powermock-api-support:jar) = 2.0.2
+mvn(org.powermock:powermock-core:jar) = 2.0.2
+mvn(org.powermock:powermock-module-junit4-common:jar) = 2.0.2
+mvn(org.powermock:powermock-module-junit4:jar) = 2.0.2
+mvn(org.powermock:powermock-reflect:jar) = 2.0.2
+mvn(org.reflections:reflections:jar) = 0.9.11
+mvn(org.rocksdb:rocksdbjni:jar) = 5.18.3
+mvn(org.scala-lang.modules:scala-xml_2.12:jar) = 1.0.5
+mvn(org.scala-lang.modules:scala-xml_2.12:jar) = 1.1.0
+mvn(org.scala-lang:scala-compiler:jar) = 2.12.8
+mvn(org.scala-lang:scala-library:jar) = 2.12.3
+mvn(org.scala-lang:scala-library:jar) = 2.12.8
+mvn(org.scala-lang:scala-reflect:jar) = 2.12.8
+mvn(org.scalactic:scalactic_2.12:jar) = 3.0.7
+mvn(org.scalatest:scalatest_2.12:jar) = 3.0.7
+mvn(org.scoverage:scalac-scoverage-plugin_2.12:jar) = 1.3.1
+mvn(org.scoverage:scalac-scoverage-runtime_2.12:jar) = 1.3.1
+mvn(org.slf4j:slf4j-log4j12:jar) = 1.7.26
+mvn(org.xerial.snappy:snappy-java:jar) = 1.1.7.3
+mvn-JavaEWAH
+mvn-apache
+mvn-commons-collections
+mvn-commons-compress
+mvn-commons-io
+mvn-commons-lang
+mvn-commons-lang3
+mvn-commons-parent
+mvn-commons-text
+mvn-dependency-check-gradle
+mvn-gradle-scoverage
+mvn-gradle-versions-plugin
+mvn-gson
+mvn-guava
+mvn-joda-time
+mvn-jsch
+mvn-jsoup
+mvn-org.eclipse.jgit
+mvn-oss-parents
+mvn-shadow
+mvn-velocity
+mvn-xmlpull
+mvn-xpp3_min
+mvn-xstream

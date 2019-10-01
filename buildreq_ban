@@ -1,2 +1,33 @@
 # This file contains build requirements that get picked up but are
 # undesirable. One entry per line, no whitespace.
+ducktape
+mvn(org.codehaus.plexus:plexus:jar) = 5.1
+mvn(org.apache.httpcomponents:httpcomponents-client:jar) = 4.5.8
+mvn(com.fasterxml.jackson.dataformat:jackson-dataformats-text:jar) = 2.9.9
+mvn(com.fasterxml.jackson.jaxrs:jackson-jaxrs-providers:jar) = 2.9.9
+mvn(com.fasterxml.jackson.module:jackson-modules-base:jar) = 2.9.9
+mvn(com.fasterxml.jackson.module:jackson-modules-java8:jar) = 2.9.9
+mvn(com.fasterxml.jackson:jackson-base:jar) = 2.9.9
+mvn(com.fasterxml.jackson:jackson-bom:jar) = 2.9.9
+mvn(com.h3xstream.retirejs:retirejs-root-pom:jar) = 3.0.1
+mvn(com.sun.mail:all:jar) = 1.6.3
+mvn(com.typesafe.sbt:compiler-interface:jar) = 0.13.15
+mvn(net.sf.ehcache:ehcache-root:jar) = 2.10.4
+mvn(org.apache.directory.project:project:jar) = 40
+mvn(org.apache.directory.project:project:jar) = 41
+mvn(org.apache.lucene:lucene-parent:jar) = 7.6.0
+mvn(org.apache.lucene:lucene-solr-grandparent:jar) = 7.6.0
+mvn(org.apache.maven:maven:jar) = 3.6.1
+mvn(org.apache.servicemix.bundles:bundles-pom:jar) = 11
+mvn(org.apache.servicemix.bundles:bundles-pom:jar) = 6
+mvn(org.apache.servicemix.bundles:bundles-pom:jar) = 8
+mvn(org.apache.servicemix:servicemix-pom:jar) = 5
+mvn(org.eclipse.ee4j:project:jar) = 1.0.4
+mvn(org.eclipse.ee4j:project:jar) = 1.0.5
+mvn(org.eclipse.jetty:jetty-project:jar) = 9.4.18.v20190429
+mvn(org.glassfish.hk2:external:jar) = 2.5.0
+mvn(org.glassfish.jersey.containers:project:jar) = 2.28
+mvn(org.glassfish.jersey.inject:project:jar) = 2.28
+mvn(org.glassfish.jersey.media:project:jar) = 2.28
+mvn(org.glassfish.jersey:project:jar) = 2.28
+mvn-org.eclipse.jgit
